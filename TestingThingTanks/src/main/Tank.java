@@ -4,13 +4,14 @@ import java.awt.Polygon;
 
 public class Tank {
 
+	final double pi = Math.PI;
 	final double length = 100;
 	final double width = 60;
+	final double turningDegree = pi / 50;
+	final double movingCoeffecient = .1;
 
 	final double cornerHeading = Math.atan(((double) width / 2)
 			/ ((double) length / 2));
-
-	final double pi = Math.PI;
 
 	double heading;
 	double x;
@@ -78,15 +79,7 @@ public class Tank {
 	}
 
 	public double getHeading() {
-		return heading % pi / 2;
-	}
-
-	public double getActual(double d) {
-		return d % 2 * pi;
-	}
-
-	private static double fixHeading(double d) {
-		return (d % Math.PI / 2);
+		return heading % pi;
 	}
 
 	public double getLength() {
@@ -106,11 +99,21 @@ public class Tank {
 	}
 
 	public void turnRight() {
-		heading += pi / 50;
+		heading += turningDegree;
 	}
-	
+
 	public void turnLeft() {
-		heading -= pi / 50;
+		heading -= turningDegree;
+	}
+
+	public void moveForward() {
+		x += Math.cos(heading) * diagonal * movingCoeffecient;
+		y += Math.sin(heading) * diagonal * movingCoeffecient;
+	}
+
+	public void moveBackward() {
+		x -= Math.cos(heading) * diagonal * movingCoeffecient;
+		y -= Math.sin(heading) * diagonal * movingCoeffecient;
 	}
 
 	public Polygon getBody() {

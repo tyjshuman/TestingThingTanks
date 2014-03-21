@@ -44,19 +44,23 @@ public class TestingController implements MouseMotionListener, KeyListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent arg0) {		
-		if(arg0.getKeyCode() == arg0.VK_LEFT)
+	public void keyPressed(KeyEvent arg0) {
+		if (arg0.getKeyCode() == arg0.VK_LEFT)
 			model.turnLeft();
-		else if(arg0.getKeyCode() == arg0.VK_RIGHT)
+		if (arg0.getKeyCode() == arg0.VK_RIGHT)
 			model.turnRight();
+		if (arg0.getKeyCode() == arg0.VK_UP)
+			model.moveForward();
+		if (arg0.getKeyCode() == arg0.VK_DOWN)
+			model.moveBackward();
 		view.repaint();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		
+
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub

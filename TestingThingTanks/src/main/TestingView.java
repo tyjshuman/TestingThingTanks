@@ -30,7 +30,7 @@ public class TestingView extends JFrame {
 
 		/* CENTER: Add a panel that the user can draw on. */
 		mousePanel = new PaintPanel(model);
-		mousePanel.setBackground(Color.WHITE);
+		mousePanel.setBackground(Color.BLACK);
 		add(mousePanel, BorderLayout.CENTER);
 
 	} // end constructor

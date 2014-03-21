@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class TestingMain {
 	public static void main(String args[]) {
-		Tank model = new Tank(0.1, 300, 300);
+		Tank model = new Tank(0, 300, 300);
 		TestingView view = new TestingView(model);
 		TestingController controller = new TestingController(model, view);
 

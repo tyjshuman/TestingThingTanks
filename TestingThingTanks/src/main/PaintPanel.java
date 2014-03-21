@@ -10,6 +10,7 @@ public class PaintPanel extends JPanel {
 	 * The model of this MVC example (it stores the points)
 	 */
 	private Tank model;
+	private Obstacle obs1;
 
 	/**
 	 * Store the model that holds the points to be drawn.
@@ -18,25 +19,13 @@ public class PaintPanel extends JPanel {
 	 */
 	public PaintPanel(Tank model) {
 		this.model = model;
+		obs1 = new TL(100, 100);
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.setColor(Color.blue);
-		g.drawLine(model.getX(), model.getY(), model.getFL()[0],
-				model.getFL()[1]);
-
-		g.setColor(Color.red);
-		g.drawLine(model.getX(), model.getY(), model.getFR()[0],
-				model.getFR()[1]);
-		g.setColor(Color.green);
-		g.drawLine(model.getX(), model.getY(), model.getBL()[0],
-				model.getBL()[1]);
-		g.setColor(Color.black);
-		g.drawLine(model.getX(), model.getY(), model.getBR()[0],
-				model.getBR()[1]);
-
+		g.setColor(Color.GREEN);
 		g.drawPolygon(model.getBody());
-
+		g.drawPolygon(obs1.getBody());
 	}
 }
